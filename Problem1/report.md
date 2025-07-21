@@ -10,7 +10,7 @@
 
 ### 解題策略
 
-Ackermann 函數是一個著名的非原始遞迴函數，定義如下：
+阿克曼(Ackermann)函數是一個著名的非原始遞迴函數，定義如下：
 | 動作 | 條件 |
 |-----------------|----------------|
 | n+1             | if m=0         |
@@ -25,7 +25,6 @@ Ackermann 函數是一個著名的非原始遞迴函數，定義如下：
 
 ```cpp
 #include <iostream>
-#include <ctime>     // 加入 clock_t、clock()、CLOCKS_PER_SEC
 using namespace std;
 
 // A 函數定義
