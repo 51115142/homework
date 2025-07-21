@@ -25,6 +25,7 @@ Ackermann 函數是一個著名的非原始遞迴函數，定義如下：
 
 ```cpp
 #include <iostream>
+#include <ctime>     // 加入 clock_t、clock()、CLOCKS_PER_SEC
 using namespace std;
 
 // A 函數定義
@@ -41,25 +42,9 @@ int A(int m, int n) {
 }
 
 int main() {
-    int m, n;
+	int m, n;
     cout << "請輸入 m 與 n（建議 m <= 3）: ";
-    cin >> m >> n;
-
-    // 計時開始
-    clock_t start_time = clock();
-
-    // 呼叫 Ackermann 函數
-    int result = A(m, n);
-
-    // 計時結束
-    clock_t end_time = clock();
-
-    // 計算執行時間（秒）
-    double duration = double(end_time - start_time) / CLOCKS_PER_SEC;
-
-    cout << "A(" << m << ", " << n << ") = " << result << endl;
-    cout << "執行時間為: " << duration << " 秒" << endl;
-
+    cin >> m >> n;    cout << "A(" << m << ", " << n << ") = " << A(m, n) << endl;
     return 0;
 }
 
