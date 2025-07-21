@@ -15,7 +15,7 @@ int A(int m, int n) {
 }
 
 int main() {
-	int m, n;
+    int m, n;
     cout << "請輸入 m 與 n（建議 m <= 3）: ";
     cin >> m >> n;    cout << "A(" << m << ", " << n << ") = " << A(m, n) << endl;
     return 0;
