@@ -21,42 +21,43 @@ Power Set（冪集合）指的是一個集合所有子集合的集合。若原�
 
 ```cpp
 #include <iostream>
-#include <vector>
-#include <cmath> // 使用 pow 計算 2^n
+#include <cmath>    // for pow()
+#include <string>   // for string[]
+#include <cstdio>   // for printf()
 
 using namespace std;
 
-// 函數：印出集合內容
-void printSet(const vector<int>& subset) {
+void printSet(int subset[], int size) {
     cout << "{ ";
-    for (size_t val = 0; val < subset.size(); val++) {
-        cout << subset[val] << " ";
+    for (int i = 0; i < size; i++) {
+        cout << subset[i] << " ";
     }
     cout << "}" << endl;
 }
 
-// 主程式
 int main() {
-    // 定義原始集合，使用 C++11 初始化方式
-    vector<int> set = {1, 2,3,4};  // 可自由更改內容
-    int n = set.size(); // 集合大小
+    // 請在此自訂集合內容
+    int set[] = {1, 2, 3, 4};
+    int n = sizeof(set) / sizeof(set[0]);
 
-    // 共有 2^n 種子集合
-    int powerSetSize = pow(2, n);
+    int total = pow(2, n); // 總共 2^n 個子集合
 
     cout << "Power Set of { ";
-    for (size_t x = 0; x < set.size(); x++) cout << set[x] << " ";
-    cout << "} is:\n" << endl;
+    for (int i = 0; i < n; i++) cout << set[i] << " ";
+    cout << "} is:\n\n";
 
-    // 使用位元法產生所有子集合
-    for (int i = 0; i < powerSetSize; i++) {
-        vector<int> subset;
+    // 每個數字代表一個子集合（bit mask）
+    for (int i = 0; i < total; i++) {
+        int subset[32]; // 預設最多支援 32 個元素
+        int index = 0;
+
         for (int j = 0; j < n; j++) {
-            if (i & (1 << j)) {  // 若第 j 個 bit 是 1，表示取用 set[j]
-                subset.push_back(set[j]);
+            if (i & (1 << j)) {
+                subset[index++] = set[j];
             }
         }
-        printSet(subset); // 印出子集合
+
+        printSet(subset, index);
     }
 
     return 0;
