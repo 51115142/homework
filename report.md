@@ -114,9 +114,9 @@ Power Set（冪集合）指的是一個集合所有子集合的集合。若原�
 
 ```cpp
 #include <iostream>
-#include <cmath>    // for pow()
-#include <string>   // for string[]
-#include <cstdio>   // for printf()
+#include <cmath>    
+#include <string>  
+#include <cstdio>   
 
 using namespace std;
 
